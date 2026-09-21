@@ -13,7 +13,7 @@
   <!-- Style CSS -->
   <link rel="stylesheet" href="./styles/style.css">
 
-  <!-- CSS PERBAIKAN: TEKS PUTIH & AMANKAN UKURAN GAMBAR/HAT -->
+  <!-- CSS PERBAIKAN: TEKS PUTIH, UKURAN GAMBAR/HAT, & EFEK BINTANG JATUH -->
   <style>
     body,
     .container,
@@ -40,14 +40,10 @@
     .hat {
       position: absolute !important;
       width: 110px !important;
-      /* Atur ukuran kecilnya di sini (bisa diubah misal 100px - 150px) */
       height: auto !important;
       top: -110px !important;
-      /* Atur jarak naik-turunya (angka minus makin besar, posisinya makin ke atas) */
       left: 50% !important;
-      /* Geser ke tengah secara horizontal */
       transform: translateX(-50%) !important;
-      /* Biar pas di tengah-tengah */
       object-fit: contain !important;
       pointer-events: none !important;
       z-index: 10;
@@ -101,12 +97,15 @@
       .six .profile-picture {
         height: 200px !important;
       }
+
       .photo-container {
         gap: 12px !important;
       }
+
       .wish-hbd {
         font-size: 1.7rem !important;
       }
+
       .wish-text {
         font-size: 0.95rem !important;
       }
@@ -130,12 +129,114 @@
     .swal2-html-container {
       color: #222222 !important;
     }
+
+    /* --- CSS Efek Bintang Jatuh Background Samping Kanan-Kiri --- */
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120%;
+      transform: rotate(-45deg);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .star {
+      --fall-delay: 0s;
+      position: absolute;
+      top: var(--top-offset);
+      left: var(--left-offset);
+      width: 6em;
+      height: 2px;
+      color: #3498db;
+      background: linear-gradient(45deg, currentColor, transparent);
+      border-radius: 50%;
+      filter: drop-shadow(0 0 6px currentColor);
+      transform: translate3d(104em, 0, 0);
+      animation: fall 6s var(--fall-delay) linear infinite, tail-fade 8s var(--fall-delay) ease-out infinite;
+    }
+
+    .star.blue {
+      color: #3498db;
+    }
+
+    .star.white {
+      color: #fff;
+    }
+
+    .star::before,
+    .star::after {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: calc(1em / -2);
+      width: 1em;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, currentColor, transparent);
+      border-radius: inherit;
+      animation: blink 2s linear infinite;
+    }
+
+    .star::before {
+      transform: rotate(45deg);
+    }
+
+    .star::after {
+      transform: rotate(-45deg);
+    }
+
+    @keyframes fall {
+      to {
+        transform: translate3d(-30em, 0, 0);
+      }
+    }
+
+    @keyframes tail-fade {
+
+      0%,
+      50% {
+        width: 6em;
+        opacity: 1;
+      }
+
+      70%,
+      80% {
+        width: 0;
+        opacity: 0.4;
+      }
+
+      100% {
+        width: 0;
+        opacity: 0;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0.6;
+      }
+    }
   </style>
 
-  <title>Happy Birthday!!! Ashifaaaa:)</title>
+  <title>Happy Birthday!!! Ashifaaaa: </title>
 </head>
 
 <body>
+
+  <!-- Efek Bintang Jatuh di Latar Belakang -->
+  <div class="stars">
+    <div class="star blue" style="--top-offset: 10vh; --left-offset: 20vw; --fall-delay: 0s;"></div>
+    <div class="star white" style="--top-offset: 20vh; --left-offset: 40vw; --fall-delay: 1s;"></div>
+    <div class="star blue" style="--top-offset: 30vh; --left-offset: 60vw; --fall-delay: 2s;"></div>
+    <div class="star white" style="--top-offset: 40vh; --left-offset: 80vw; --fall-delay: 3s;"></div>
+    <div class="star blue" style="--top-offset: 50vh; --left-offset: 10vw; --fall-delay: 4s;"></div>
+    <div class="star white" style="--top-offset: 60vh; --left-offset: 30vw; --fall-delay: 5s;"></div>
+    <div class="star blue" style="--top-offset: 70vh; --left-offset: 50vw; --fall-delay: 6s;"></div>
+    <div class="star white" style="--top-offset: 80vh; --left-offset: 70vw; --fall-delay: 7s;"></div>
+    <div class="star blue" style="--top-offset: 90vh; --left-offset: 90vw; --fall-delay: 8s;"></div>
+    <div class="star white" style="--top-offset: 100vh; --left-offset: 20vw; --fall-delay: 9s;"></div>
+  </div>
 
   <audio class="song" loop autoplay>
     <source src="./music/lucukk.mp3">
@@ -191,96 +292,103 @@
     </div>
 
     <div class="six">
-      <div class="photo-container" style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
-        <img src="img/imuppp.svg" alt="Hat" class="hat" />
-        <img src="./img/cipaa.jpeg" alt="Ayanggg" class="profile-picture" id="imagePath" />
-        <img src="./img/cipaaa.jpeg" alt="Ayanggg" class="profile-picture" />
+      <div class="photo-container">
+        <!-- Foto Pertama + Topi -->
+        <div style="position: relative; display: inline-block;">
+          <img src="img/imuppp.svg" alt="Hat" class="hat" />
+          <img src="./img/cipaa.jpeg" alt="Ayanggg" class="profile-picture" id="imagePath" />
+        </div>
+        <!-- Foto Kedua Sampingnya -->
+        <div style="position: relative; display: inline-block;">
+          <img src="./img/cipaaa.jpeg" alt="Ayanggg" class="profile-picture" />
+        </div>
       </div>
       <div class="wish">
         <h3 class="wish-hbd">Happy Birthday!</h3>
         <h5 class="wish-text">
-          "Happy Birthday, Ashifaaaa! Wishing you a day as beautiful as you are. <br /> Lots of love and hugs on your
+          "Happy Birthday, Ashifaaaa🤗🤗! Wishing you a day as beautiful as you are. <br /> Lots of love and hugs on
+          your
           special
           day!"
         </h5>
       </div>
     </div>
 
-  <div class="seven">
-    <div class="ballons">
-      <img src="img/ballon2.svg" alt="Ballon" />
-      <img src="img/ballon1.svg" alt="Ballon" />
-      <img src="img/ballon3.svg" alt="Ballon" />
-      <img src="img/ballon2.svg" alt="Ballon" />
-      <img src="img/ballon1.svg" alt="Ballon" />
-      <img src="img/ballon3.svg" alt="Ballon" />
-      <img src="img/ballon2.svg" alt="Ballon" />
-      <img src="img/ballon1.svg" alt="Ballon" />
-      <img src="img/ballon3.svg" alt="Ballon" />
-      <img src="img/ballon2.svg" alt="Ballon" />
-      <img src="img/ballon1.svg" alt="Ballon" />
-      <img src="img/ballon3.svg" alt="Ballon" />
-      <img src="img/ballon2.svg" alt="Ballon" />
-      <img src="img/ballon1.svg" alt="Ballon" />
-      <img src="img/ballon3.svg" alt="Ballon" />
-      <img src="img/ballon2.svg" alt="Ballon" />
-      <img src="img/ballon1.svg" alt="Ballon" />
-      <img src="img/ballon3.svg" alt="Ballon" />
-      <img src="img/ballon2.svg" alt="Ballon" />
-      <img src="img/ballon1.svg" alt="Ballon" />
-      <img src="img/ballon3.svg" alt="Ballon" />
-      <img src="img/ballon2.svg" alt="Ballon" />
-      <img src="img/ballon1.svg" alt="Ballon" />
-      <img src="img/ballon3.svg" alt="Ballon" />
-      <img src="img/ballon2.svg" alt="Ballon" />
-      <img src="img/ballon1.svg" alt="Ballon" />
-      <img src="img/ballon3.svg" alt="Ballon" />
-      <img src="img/ballon2.svg" alt="Ballon" />
-      <img src="img/ballon1.svg" alt="Ballon" />
-      <img src="img/ballon3.svg" alt="Ballon" />
-      <img src="img/ballon2.svg" alt="Ballon" />
-      <img src="img/ballon1.svg" alt="Ballon" />
-      <img src="img/ballon3.svg" alt="Ballon" />
+    <div class="seven">
+      <div class="ballons">
+        <img src="img/ballon2.svg" alt="Ballon" />
+        <img src="img/ballon1.svg" alt="Ballon" />
+        <img src="img/ballon3.svg" alt="Ballon" />
+        <img src="img/ballon2.svg" alt="Ballon" />
+        <img src="img/ballon1.svg" alt="Ballon" />
+        <img src="img/ballon3.svg" alt="Ballon" />
+        <img src="img/ballon2.svg" alt="Ballon" />
+        <img src="img/ballon1.svg" alt="Ballon" />
+        <img src="img/ballon3.svg" alt="Ballon" />
+        <img src="img/ballon2.svg" alt="Ballon" />
+        <img src="img/ballon1.svg" alt="Ballon" />
+        <img src="img/ballon3.svg" alt="Ballon" />
+        <img src="img/ballon2.svg" alt="Ballon" />
+        <img src="img/ballon1.svg" alt="Ballon" />
+        <img src="img/ballon3.svg" alt="Ballon" />
+        <img src="img/ballon2.svg" alt="Ballon" />
+        <img src="img/ballon1.svg" alt="Ballon" />
+        <img src="img/ballon3.svg" alt="Ballon" />
+        <img src="img/ballon2.svg" alt="Ballon" />
+        <img src="img/ballon1.svg" alt="Ballon" />
+        <img src="img/ballon3.svg" alt="Ballon" />
+        <img src="img/ballon2.svg" alt="Ballon" />
+        <img src="img/ballon1.svg" alt="Ballon" />
+        <img src="img/ballon3.svg" alt="Ballon" />
+        <img src="img/ballon2.svg" alt="Ballon" />
+        <img src="img/ballon1.svg" alt="Ballon" />
+        <img src="img/ballon3.svg" alt="Ballon" />
+        <img src="img/ballon2.svg" alt="Ballon" />
+        <img src="img/ballon1.svg" alt="Ballon" />
+        <img src="img/ballon3.svg" alt="Ballon" />
+        <img src="img/ballon2.svg" alt="Ballon" />
+        <img src="img/ballon1.svg" alt="Ballon" />
+        <img src="img/ballon3.svg" alt="Ballon" />
+      </div>
     </div>
-  </div>
 
-  <div class="eight">
-    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="20" />
-    </svg>
-    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="20" />
-    </svg>
-    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="20" />
-    </svg>
-    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="20" />
-    </svg>
-    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="20" />
-    </svg>
-    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="20" />
-    </svg>
-    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="20" />
-    </svg>
-    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="20" />
-    </svg>
-    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="20" />
-    </svg>
-  </div>
+    <div class="eight">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="20" />
+      </svg>
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="20" />
+      </svg>
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="20" />
+      </svg>
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="20" />
+      </svg>
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="20" />
+      </svg>
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="20" />
+      </svg>
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="20" />
+      </svg>
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="20" />
+      </svg>
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="20" />
+      </svg>
+    </div>
 
-  <div class="nine">
-    <p>Okay, now come back and tell me if you liked it.</p>
-    <p id="replay">
-      Or you can click here it if you want to see it again.
-    </p>
-    <p class="last-smile">😊</p>
-  </div>
+    <div class="nine">
+      <p>Okay, now come back and tell me if you liked it.</p>
+      <p id="replay">
+        Or you can click here it if you want to see it again.
+      </p>
+      <p class="last-smile">😊</p>
+    </div>
   </div>
 </body>
 <!-- GSAP -->
@@ -292,7 +400,5 @@
 
 <!-- Heart Animation -->
 <script type="application/javascript" src="./scripts/heart_bg.js"></script>
-
-
 
 </html>
