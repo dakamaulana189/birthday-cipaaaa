@@ -13,7 +13,7 @@
   <!-- Style CSS -->
   <link rel="stylesheet" href="./styles/style.css">
 
-  <!-- CSS KHUSUS BACKGROUND GELAP & AMANKAN SWEETALERT -->
+  <!-- CSS KHUSUS BACKGROUND GELAP & ELEMEN TERAKHIR (.nine) -->
   <style>
     /* Teks di halaman utama jadi putih */
     body,
@@ -36,9 +36,21 @@
       border: 1px solid rgba(255, 255, 255, 0.3) !important;
     }
 
+    /* Tambahkan Background Semi-Transparan di Bagian Akhir (.nine) */
+    .nine {
+      background-color: rgba(0, 0, 0, 0.75) !important;
+      padding: 25px 35px !important;
+      border-radius: 15px !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
     #replay {
       cursor: pointer;
       color: #70b0ff !important;
+      font-weight: 500;
     }
 
     /* Kembalikan SweetAlert (Popup) agar teksnya hitam & terbaca */
