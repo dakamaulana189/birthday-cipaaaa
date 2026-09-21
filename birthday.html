@@ -39,12 +39,15 @@
     /* Perbaikan khusus untuk gambar topi/sticker agar tidak gepeng */
     .hat {
       position: absolute !important;
-      width: 100% !important;
-      height: 100% !important;
-      top: 0 !important;
-      left: 0 !important;
-      transform: translateY(40px) !important;
-      /* Ubah angka 40px sesuai kebutuhan turunnya */
+      width: 110px !important;
+      /* Atur ukuran kecilnya di sini (bisa diubah misal 100px - 150px) */
+      height: auto !important;
+      top: -110px !important;
+      /* Atur jarak naik-turunya (angka minus makin besar, posisinya makin ke atas) */
+      left: 50% !important;
+      /* Geser ke tengah secara horizontal */
+      transform: translateX(-50%) !important;
+      /* Biar pas di tengah-tengah */
       object-fit: contain !important;
       pointer-events: none !important;
       z-index: 10;
