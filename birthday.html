@@ -12,13 +12,41 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,400&display=swap" rel="stylesheet">
   <!-- Style CSS -->
   <link rel="stylesheet" href="./styles/style.css">
-  <title>Happy Birthday!!! Jubed :)</title>
+
+  <!-- CSS TAMBAHAN UNTUK TEKS DI BACKGROUND GELAP -->
+  <style>
+    body,
+    .container,
+    p,
+    h1,
+    h3,
+    h5,
+    span,
+    div {
+      color: #ffffff !important;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+
+    .fake-btn,
+    .text-box {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+
+    #replay {
+      cursor: pointer;
+      color: #70b0ff !important;
+    }
+  </style>
+
+  <title>Happy Birthday!!! Ashifa Juandra :)</title>
 </head>
 
 <body>
 
   <audio class="song" loop autoplay>
-    <source src="./music/hbd.mp3">
+    <source src="./music/lucukk.mp3">
     </source>
     Your browser isn't invited for super fun audio time.
   </audio>
@@ -27,7 +55,7 @@
 
     <div class="one">
       <h1 class="one">
-        Hi!👋🏼 <span id="name">Jubed</span> <!-- Ganti ini jadi nama yang ultah -->
+        Hi!👋🏼 <span id="name">Ashifa</span>
       </h1>
       <p class="two" id="greetingText">I really like your name btw! It's so unique and beautiful, just like you!</p>
     </div>
@@ -71,12 +99,12 @@
     </div>
 
     <div class="six">
-      <img src="./img/ayang.png" alt="Ayanggg" class="profile-picture" id="imagePath" />
-      <img src="img/hat.svg" alt="Hat" class="hat" />
+      <img src="./img/cipaa.jpeg" alt="Ayanggg" class="profile-picture" id="imagePath" />
+      <img src="img/imupp.svg" alt="Hat" class="hat" />
       <div class="wish">
         <h3 class="wish-hbd">Happy Birthday!</h3>
         <h5 class="wish-text">
-          "Happy Birthday, Ayanggg! Wishing you a day as beautiful as you are. <br /> Lots of love and hugs on your
+          "Happy Birthday, Ashifaaaa! Wishing you a day as beautiful as you are. <br /> Lots of love and hugs on your
           special
           day!"
         </h5>
@@ -166,5 +194,8 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Main JS -->
 <script type="application/javascript" src="./scripts/birthday.js"></script>
+
+<!-- Heart Animation -->
+<script type="application/javascript" src="./scripts/heart_bg.js"></script>
 
 </html>
