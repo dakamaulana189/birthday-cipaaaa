@@ -6,7 +6,7 @@ canvas.style.top = '0';
 canvas.style.left = '0';
 canvas.style.width = '100vw';
 canvas.style.height = '100vh';
-canvas.style.zIndex = '-1'; // Supaya berada di belakang konten utama
+canvas.style.zIndex = '-2'; // Supaya berada di belakang bintang jatuh dan konten utama
 canvas.style.pointerEvents = 'none'; // Supaya tidak mengganggu klik mouse
 document.body.appendChild(canvas);
 

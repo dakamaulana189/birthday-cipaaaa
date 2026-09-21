@@ -13,7 +13,7 @@
   <!-- Style CSS -->
   <link rel="stylesheet" href="./styles/style.css">
 
-  <!-- CSS PERBAIKAN: TEKS PUTIH, UKURAN GAMBAR/HAT, & EFEK BINTANG JATUH -->
+  <!-- CSS PERBAIKAN: TEKS PUTIH & AMANKAN UKURAN GAMBAR/HAT -->
   <style>
     body,
     .container,
@@ -40,10 +40,14 @@
     .hat {
       position: absolute !important;
       width: 110px !important;
+      /* Atur ukuran kecilnya di sini (bisa diubah misal 100px - 150px) */
       height: auto !important;
       top: -110px !important;
+      /* Atur jarak naik-turunya (angka minus makin besar, posisinya makin ke atas) */
       left: 50% !important;
+      /* Geser ke tengah secara horizontal */
       transform: translateX(-50%) !important;
+      /* Biar pas di tengah-tengah */
       object-fit: contain !important;
       pointer-events: none !important;
       z-index: 10;
@@ -130,7 +134,27 @@
       color: #222222 !important;
     }
 
-    /* --- CSS Efek Bintang Jatuh Background Samping Kanan-Kiri --- */
+    /* =========================================
+       Shooting Stars Background Animation
+       ========================================= */
+    :root {
+      --star-tail-length: 6em;
+      --star-tail-height: 2px;
+      --star-width: calc(var(--star-tail-length) / 6);
+      --fall-duration: 6s;
+      --tail-fade-duration: 8s;
+      --star-color-blue: #3498db;
+      --star-color-white: #fff;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    #heartCanvas {
+      z-index: -2 !important;
+    }
+
     .stars {
       position: fixed;
       top: 0;
@@ -139,30 +163,34 @@
       height: 120%;
       transform: rotate(-45deg);
       z-index: -1;
-      pointer-events: none;
+      pointer-events: none !important;
+      overflow: hidden;
     }
 
     .star {
       --fall-delay: 0s;
+
       position: absolute;
       top: var(--top-offset);
       left: var(--left-offset);
-      width: 6em;
-      height: 2px;
-      color: #3498db;
+      width: var(--star-tail-length);
+      height: var(--star-tail-height);
+      color: var(--star-color-blue);
       background: linear-gradient(45deg, currentColor, transparent);
       border-radius: 50%;
       filter: drop-shadow(0 0 6px currentColor);
       transform: translate3d(104em, 0, 0);
-      animation: fall 6s var(--fall-delay) linear infinite, tail-fade 8s var(--fall-delay) ease-out infinite;
+      animation: fall var(--fall-duration) var(--fall-delay) linear infinite,
+        tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
+      pointer-events: none !important;
     }
 
     .star.blue {
-      color: #3498db;
+      color: var(--star-color-blue);
     }
 
     .star.white {
-      color: #fff;
+      color: var(--star-color-white);
     }
 
     .star::before,
@@ -170,8 +198,8 @@
       position: absolute;
       content: '';
       top: 0;
-      left: calc(1em / -2);
-      width: 1em;
+      left: calc(var(--star-width) / -2);
+      width: var(--star-width);
       height: 100%;
       background: linear-gradient(45deg, transparent, currentColor, transparent);
       border-radius: inherit;
@@ -193,19 +221,14 @@
     }
 
     @keyframes tail-fade {
-
-      0%,
-      50% {
-        width: 6em;
+      0%, 50% {
+        width: var(--star-tail-length);
         opacity: 1;
       }
-
-      70%,
-      80% {
+      70%, 80% {
         width: 0;
         opacity: 0.4;
       }
-
       100% {
         width: 0;
         opacity: 0;
@@ -224,7 +247,7 @@
 
 <body>
 
-  <!-- Efek Bintang Jatuh di Latar Belakang -->
+  <!-- Efek Bintang Jatuh (Shooting Stars) -->
   <div class="stars">
     <div class="star blue" style="--top-offset: 10vh; --left-offset: 20vw; --fall-delay: 0s;"></div>
     <div class="star white" style="--top-offset: 20vh; --left-offset: 40vw; --fall-delay: 1s;"></div>
@@ -292,16 +315,11 @@
     </div>
 
     <div class="six">
-      <div class="photo-container">
-        <!-- Foto Pertama + Topi -->
-        <div style="position: relative; display: inline-block;">
-          <img src="img/imuppp.svg" alt="Hat" class="hat" />
-          <img src="./img/cipaa.jpeg" alt="Ayanggg" class="profile-picture" id="imagePath" />
-        </div>
-        <!-- Foto Kedua Sampingnya -->
-        <div style="position: relative; display: inline-block;">
-          <img src="./img/cipaaa.jpeg" alt="Ayanggg" class="profile-picture" />
-        </div>
+      <div class="photo-container"
+        style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <img src="img/imuppp.svg" alt="Hat" class="hat" />
+        <img src="./img/cipaa.jpeg" alt="Ayanggg" class="profile-picture" id="imagePath" />
+        <img src="./img/cipaaa.jpeg" alt="Ayanggg" class="profile-picture" />
       </div>
       <div class="wish">
         <h3 class="wish-hbd">Happy Birthday!</h3>
@@ -400,5 +418,7 @@
 
 <!-- Heart Animation -->
 <script type="application/javascript" src="./scripts/heart_bg.js"></script>
+
+
 
 </html>
