@@ -53,6 +53,65 @@
       z-index: 10;
     }
 
+    /* Kontainer foto berdampingan */
+    .photo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .six .profile-picture {
+      height: 290px !important;
+      max-height: 38vh !important;
+      width: auto !important;
+      max-width: 44vw !important;
+      object-fit: cover !important;
+      border-radius: 14px !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    /* Penataan teks ucapan agar rapi dan tidak berantakan */
+    .wish {
+      margin-top: 20px !important;
+      text-align: center !important;
+      position: relative;
+      z-index: 2;
+    }
+
+    .wish-hbd {
+      font-size: 2.2rem !important;
+      margin: 0 !important;
+      line-height: 1.2 !important;
+    }
+
+    .wish-text {
+      font-size: 1.15rem !important;
+      font-weight: 300 !important;
+      line-height: 1.5 !important;
+      margin: 10px auto 0 !important;
+      max-width: 600px;
+      padding: 0 15px;
+    }
+
+    @media screen and (max-width: 500px) {
+      .six .profile-picture {
+        height: 200px !important;
+      }
+      .photo-container {
+        gap: 12px !important;
+      }
+      .wish-hbd {
+        font-size: 1.7rem !important;
+      }
+      .wish-text {
+        font-size: 0.95rem !important;
+      }
+    }
+
     #replay {
       cursor: pointer;
       color: #70b0ff !important;
@@ -132,22 +191,20 @@
     </div>
 
     <div class="six">
-      <img src="./img/cipaa.jpeg" alt="Ayanggg" class="profile-picture" id="imagePath" />
-      <img src="img/imuppp.svg" alt="Hat" class="hat" />
-      <div>
-        <div class="profile-wrapper">
-          <img src="./img/cipaaa.jpeg" alt="Foto Tambahan" class="profile-picture extra-photo" />
-        </div>
-
-      </div> class="wish">
-      <h3 class="wish-hbd">Happy Birthday!</h3>
-      <h5 class="wish-text">
-        "Happy Birthday, Ashifaaaa! Wishing you a day as beautiful as you are. <br /> Lots of love and hugs on your
-        special
-        day!"
-      </h5>
+      <div class="photo-container" style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <img src="img/imuppp.svg" alt="Hat" class="hat" />
+        <img src="./img/cipaa.jpeg" alt="Ayanggg" class="profile-picture" id="imagePath" />
+        <img src="./img/cipaaa.jpeg" alt="Ayanggg" class="profile-picture" />
+      </div>
+      <div class="wish">
+        <h3 class="wish-hbd">Happy Birthday!</h3>
+        <h5 class="wish-text">
+          "Happy Birthday, Ashifaaaa! Wishing you a day as beautiful as you are. <br /> Lots of love and hugs on your
+          special
+          day!"
+        </h5>
+      </div>
     </div>
-  </div>
 
   <div class="seven">
     <div class="ballons">
@@ -236,28 +293,6 @@
 <!-- Heart Animation -->
 <script type="application/javascript" src="./scripts/heart_bg.js"></script>
 
-<style>
-  /* Kontainer untuk mensejajarkan foto-foto secara berdampingan */
-  .photo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    /* Jarak antara foto pertama dan foto kedua */
-    margin-bottom: 20px;
-  }
 
-  /* Memastikan wrapper tiap foto mendukung posisi absolut stiker topi */
-  .profile-wrapper {
-    position: relative;
-    display: inline-block;
-  }
-
-  /* Ukuran tambahan jika ingin menyesuaikan foto kedua */
-  .extra-photo {
-    /* Ukurannya akan mengikuti style .profile-picture yang sudah ada, 
-     atau bisa ditambahkan ukuran khusus di sini jika ingin dibikin lebih besar/kecil */
-  }
-</style>
 
 </html>
