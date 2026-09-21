@@ -13,18 +13,20 @@
   <!-- Style CSS -->
   <link rel="stylesheet" href="./styles/style.css">
 
-  <!-- CSS TAMBAHAN UNTUK TEKS DI BACKGROUND GELAP -->
+  <!-- CSS KHUSUS BACKGROUND GELAP & AMANKAN SWEETALERT -->
   <style>
+    /* Teks di halaman utama jadi putih */
     body,
     .container,
-    p,
     h1,
     h3,
-    h5,
-    span,
-    div {
+    h5 {
       color: #ffffff !important;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    p:not(.swal2-container p) {
+      color: #ffffff !important;
     }
 
     .fake-btn,
@@ -37,6 +39,18 @@
     #replay {
       cursor: pointer;
       color: #70b0ff !important;
+    }
+
+    /* Kembalikan SweetAlert (Popup) agar teksnya hitam & terbaca */
+    .swal2-popup,
+    .swal2-popup * {
+      color: #545454 !important;
+      text-shadow: none !important;
+    }
+
+    .swal2-title,
+    .swal2-html-container {
+      color: #222222 !important;
     }
   </style>
 
