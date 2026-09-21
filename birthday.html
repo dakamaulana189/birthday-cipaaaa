@@ -38,10 +38,16 @@
 
     /* Perbaikan khusus untuk gambar topi/sticker agar tidak gepeng */
     .hat {
+      position: absolute !important;
+      width: 100% !important;
+      height: 100% !important;
+      top: 0 !important;
+      left: 0 !important;
+      transform: translateY(40px) !important;
+      /* Ubah angka 40px sesuai kebutuhan turunnya */
       object-fit: contain !important;
-      width: auto !important;
-      height: auto !important;
-      max-width: 150px !important;
+      pointer-events: none !important;
+      z-index: 10;
     }
 
     #replay {
@@ -79,7 +85,7 @@
 
     <div class="one">
       <h1 class="one">
-        Hi!👋🏼 <span id="name">Ashifa</span>
+        Hi!👋🏼 <span id="name">Ashifaa🫰🏼</span>
       </h1>
       <p class="two" id="greetingText">I really like your name btw! It's so unique and beautiful, just like you!</p>
     </div>
