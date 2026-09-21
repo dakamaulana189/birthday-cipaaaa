@@ -13,7 +13,7 @@
   <!-- Style CSS -->
   <link rel="stylesheet" href="./styles/style.css">
 
-  <!-- CSS KHUSUS BACKGROUND GELAP & ELEMEN TERAKHIR (.nine) -->
+  <!-- CSS KHUSUS BACKGROUND GELAP & KOTAK KHUSUS TEXT TERAKHIR -->
   <style>
     /* Teks di halaman utama jadi putih */
     body,
@@ -36,14 +36,14 @@
       border: 1px solid rgba(255, 255, 255, 0.3) !important;
     }
 
-    /* Tambahkan Background Semi-Transparan di Bagian Akhir (.nine) */
-    .nine {
-      background-color: rgba(0, 0, 0, 0.75) !important;
-      padding: 25px 35px !important;
+    /* Kotak khusus untuk bagian teks terakhir (.nine-box) */
+    .nine-box {
+      background-color: rgba(0, 0, 0, 0.8) !important;
+      padding: 25px 30px !important;
       border-radius: 15px !important;
-      border: 1px solid rgba(255, 255, 255, 0.2) !important;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
-      max-width: 600px;
+      border: 1px solid rgba(255, 255, 255, 0.25) !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9) !important;
+      max-width: 500px;
       margin: 0 auto;
     }
 
@@ -206,11 +206,13 @@
     </div>
 
     <div class="nine">
-      <p>Okay, now come back and tell me if you liked it.</p>
-      <p id="replay">
-        Or you can click here it if you want to see it again.
-      </p>
-      <p class="last-smile">😊</p>
+      <div class="nine-box">
+        <p>Okay, now come back and tell me if you liked it.</p>
+        <p id="replay">
+          Or you can click here it if you want to see it again.
+        </p>
+        <p class="last-smile">😊</p>
+      </div>
     </div>
   </div>
 </body>
