@@ -25,6 +25,8 @@ const animationTimeline = () => {
   // split chars that needs  to be animted individually
   const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
   const hbd = document.getElementsByClassName("wish-hbd")[0];
+  const fakeBtn = document.querySelector(".fake-btn");
+  let wishSent = false;
 
   textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
     .split("")
@@ -109,14 +111,21 @@ const animationTimeline = () => {
       },
       0.05
     )
-    .to(
-      ".fake-btn",
-      0.1,
-      {
-        backgroundColor: "rgb(127, 206, 248)",
-      },
-      "+=4"
-    )
+    .call(() => {
+      // Aktifkan indikator siap klik pada tombol
+      if (fakeBtn) {
+        fakeBtn.classList.add("ready-to-send");
+      }
+    })
+    // Hentikan alur otomatis di sini, menunggu pengguna mengklik tombol
+    .addPause()
+    // Titik awal kelanjutan animasi setelah tombol diklik
+    .addLabel("sendWish")
+    .to(".fake-btn", 0.2, {
+      scale: 0.9,
+      yoyo: true,
+      repeat: 1,
+    })
     .to(
       ".four",
       0.5,
@@ -125,7 +134,7 @@ const animationTimeline = () => {
         opacity: 0,
         y: -150,
       },
-      "+=1"
+      "+=0.2"
     )
     .from(".idea-1", 0.7, ideaTextTrans)
     .to(".idea-1", 0.7, ideaTextTransLeave, "+=2.5")
@@ -292,9 +301,46 @@ const animationTimeline = () => {
       "+=1"
     );
 
+  // Event listener klik tombol 'Send your wishes ✨' untuk memicu kelanjutan animasi GSAP
+  const handleWishClick = () => {
+    if (wishSent) return;
+    wishSent = true;
+
+    if (fakeBtn) {
+      fakeBtn.classList.remove("ready-to-send");
+    }
+
+    // Pastikan seluruh teks pesan chatbox sudah terlihat
+    const chatboxSpans = document.querySelectorAll(".hbd-chatbox span");
+    chatboxSpans.forEach((span) => {
+      span.style.visibility = "visible";
+    });
+
+    // Lanjutkan animasi timeline GSAP ke tahap berikutnya
+    if (tl.paused()) {
+      tl.play();
+    } else {
+      tl.play("sendWish");
+    }
+  };
+
+  if (fakeBtn) {
+    fakeBtn.addEventListener("click", handleWishClick);
+  }
+
   // restart animation on click
   const replyBtn = document.getElementById("replay");
-  replyBtn.addEventListener("click", () => {
-    tl.restart();
-  });
+  if (replyBtn) {
+    replyBtn.addEventListener("click", () => {
+      wishSent = false;
+      if (fakeBtn) {
+        fakeBtn.classList.remove("ready-to-send");
+      }
+      const chatboxSpans = document.querySelectorAll(".hbd-chatbox span");
+      chatboxSpans.forEach((span) => {
+        span.style.visibility = "hidden";
+      });
+      tl.restart();
+    });
+  }
 };

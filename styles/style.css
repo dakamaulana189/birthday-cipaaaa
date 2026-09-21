@@ -164,6 +164,8 @@ button[type="submit"]:hover {
   position: absolute;
   color: #fff;
   padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 2;
 }
 
 .five p {

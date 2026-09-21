@@ -29,11 +29,49 @@
       text-shadow: 0 0 12px rgba(0, 0, 0, 0.9), 0 0 5px rgba(0, 0, 0, 0.9);
     }
 
-    .fake-btn,
     .text-box {
       background-color: rgba(0, 0, 0, 0.75) !important;
       color: #ffffff !important;
       border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+
+    .fake-btn {
+      background-color: rgba(21, 161, 237, 0.7) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.4) !important;
+      cursor: pointer !important;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      border-radius: 8px !important;
+      transition: all 0.25s ease !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .fake-btn:hover {
+      background-color: rgba(33, 150, 243, 0.95) !important;
+      border-color: rgba(255, 255, 255, 0.8) !important;
+      box-shadow: 0 0 18px rgba(33, 150, 243, 0.8) !important;
+      transform: scale(1.05);
+    }
+
+    .fake-btn:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes pulseWishBtn {
+      0%, 100% {
+        box-shadow: 0 0 8px rgba(33, 150, 243, 0.6);
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 22px rgba(33, 150, 243, 1), 0 0 35px rgba(255, 255, 255, 0.5);
+        border-color: #ffffff;
+      }
+    }
+
+    .fake-btn.ready-to-send {
+      animation: pulseWishBtn 1.5s infinite alternate ease-in-out;
+      background-color: rgba(33, 150, 243, 0.85) !important;
     }
 
     /* Perbaikan khusus untuk gambar topi/sticker agar tidak gepeng */
@@ -286,7 +324,7 @@
           I hope you have a great day today, and the year ahead is full of many blessings. May all your wishes come
           true!
         </p>
-        <p class="fake-btn">
+        <p class="fake-btn" id="fakeBtn">
           Send your wishes ✨
         </p>
       </div>
