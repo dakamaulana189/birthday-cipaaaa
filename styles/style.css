@@ -156,16 +156,16 @@ button[type="submit"]:hover {
   visibility: hidden;
 }
 
-.text-box .fake-btn {
+.four .fake-btn,
+.fake-btn {
   background-color: rgb(21, 161, 237);
-  border-radius: 5px;
-  bottom: -50px;
-  right: 5px;
-  position: absolute;
+  border-radius: 20px;
   color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.5rem;
   cursor: pointer;
-  z-index: 2;
+  z-index: 10;
+  margin-top: 15px;
+  display: inline-block;
 }
 
 .five p {

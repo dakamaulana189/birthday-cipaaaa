@@ -328,6 +328,17 @@ const animationTimeline = () => {
     fakeBtn.addEventListener("click", handleWishClick);
   }
 
+  // Backup listener pada div.four agar jika pengguna mengklik area chatbox, animasi tetap berlanjut
+  const fourBox = document.querySelector(".four");
+  if (fourBox) {
+    fourBox.addEventListener("click", (e) => {
+      // Pastikan timeline sedang berada di tahap pause sebelum memicu
+      if (tl.paused()) {
+        handleWishClick();
+      }
+    });
+  }
+
   // restart animation on click
   const replyBtn = document.getElementById("replay");
   if (replyBtn) {
