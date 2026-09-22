@@ -99,10 +99,6 @@ const animationTimeline = () => {
       scale: 0.2,
       opacity: 0,
     })
-    .from(".fake-btn", 0.3, {
-      scale: 0.2,
-      opacity: 0,
-    })
     .staggerTo(
       ".hbd-chatbox span",
       1.5,
@@ -110,6 +106,15 @@ const animationTimeline = () => {
         visibility: "visible",
       },
       0.05
+    )
+    .from(
+      ".fake-btn",
+      0.4,
+      {
+        scale: 0.7,
+        opacity: 0,
+        y: 10,
+      }
     )
     .call(() => {
       // Aktifkan indikator siap klik pada tombol
@@ -324,18 +329,11 @@ const animationTimeline = () => {
     }
   };
 
+  // Batasi area klik HANYA pada tombol 'Send your wishes'
   if (fakeBtn) {
-    fakeBtn.addEventListener("click", handleWishClick);
-  }
-
-  // Backup listener pada div.four agar jika pengguna mengklik area chatbox, animasi tetap berlanjut
-  const fourBox = document.querySelector(".four");
-  if (fourBox) {
-    fourBox.addEventListener("click", (e) => {
-      // Pastikan timeline sedang berada di tahap pause sebelum memicu
-      if (tl.paused()) {
-        handleWishClick();
-      }
+    fakeBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      handleWishClick();
     });
   }
 

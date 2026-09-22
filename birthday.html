@@ -43,62 +43,81 @@
       z-index: 15 !important;
     }
 
-    .four .text-box {
-      background-color: rgba(0, 0, 0, 0.8) !important;
+    .four .text-box,
+    .text-box {
+      background-color: rgba(0, 0, 0, 0.85) !important;
       color: #ffffff !important;
-      border: 2px solid rgba(255, 255, 255, 0.35) !important;
+      border: 2px solid rgba(255, 255, 255, 0.4) !important;
       border-radius: 20px !important;
-      margin: 0 auto 15px auto !important;
-      padding: 20px 25px !important;
+      margin: 0 auto !important;
+      padding: 24px 28px !important;
       position: relative !important;
       width: 600px !important;
       max-width: 90vw !important;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7) !important;
+      text-align: left !important;
     }
 
-    .four .fake-btn,
-    .fake-btn {
+    .hbd-chatbox {
+      margin: 0 0 18px 0 !important;
+      line-height: 1.6 !important;
+      font-size: 1.1rem !important;
+      color: #ffffff !important;
+    }
+
+    /* Tombol Send your wishes ✨ */
+    .fake-btn,
+    .text-box .fake-btn,
+    .four .fake-btn {
+      display: inline-block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
       position: relative !important;
+      float: right !important;
+      clear: both !important;
       bottom: auto !important;
       right: auto !important;
       left: auto !important;
       top: auto !important;
-      display: inline-block !important;
-      margin: 15px auto 0 auto !important;
-      padding: 12px 30px !important;
-      background: linear-gradient(135deg, #15a1ed 0%, #0077b6 100%) !important;
+      margin-top: 12px !important;
+      padding: 10px 24px !important;
+      background: #15a1ed !important;
+      background-color: #15a1ed !important;
       color: #ffffff !important;
-      font-size: 1.05rem !important;
+      font-size: 0.95rem !important;
       font-weight: 600 !important;
-      border: 1px solid rgba(255, 255, 255, 0.6) !important;
-      border-radius: 30px !important;
+      border: 2px solid #ffffff !important;
+      border-radius: 25px !important;
       cursor: pointer !important;
       user-select: none !important;
       -webkit-user-select: none !important;
       pointer-events: auto !important;
-      box-shadow: 0 4px 20px rgba(21, 161, 237, 0.5) !important;
-      transition: all 0.3s ease !important;
-      z-index: 25 !important;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+      box-shadow: 0 4px 15px rgba(21, 161, 237, 0.6) !important;
+      transition: all 0.25s ease !important;
+      z-index: 99 !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
     }
 
-    .four .fake-btn:hover,
-    .fake-btn:hover {
-      background: linear-gradient(135deg, #38b6ff 0%, #15a1ed 100%) !important;
-      transform: translateY(-2px) scale(1.05) !important;
-      box-shadow: 0 6px 25px rgba(21, 161, 237, 0.8) !important;
+    .fake-btn:hover,
+    .text-box .fake-btn:hover,
+    .four .fake-btn:hover {
+      background: #0077b6 !important;
+      background-color: #0077b6 !important;
       border-color: #ffffff !important;
+      transform: scale(1.06) !important;
+      box-shadow: 0 6px 20px rgba(0, 119, 182, 0.9) !important;
     }
 
-    .four .fake-btn:active,
-    .fake-btn:active {
-      transform: translateY(1px) scale(0.97) !important;
+    .fake-btn:active,
+    .text-box .fake-btn:active,
+    .four .fake-btn:active {
+      transform: scale(0.96) !important;
     }
 
     @keyframes pulseWishBtn {
       0%, 100% {
         box-shadow: 0 0 10px rgba(21, 161, 237, 0.6);
-        border-color: rgba(255, 255, 255, 0.5);
+        border-color: rgba(255, 255, 255, 0.7);
       }
       50% {
         box-shadow: 0 0 25px rgba(56, 182, 255, 1), 0 0 40px rgba(255, 255, 255, 0.5);
@@ -108,7 +127,13 @@
 
     .fake-btn.ready-to-send {
       animation: pulseWishBtn 1.5s infinite alternate ease-in-out;
-      background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%) !important;
+      background-color: #00b4d8 !important;
+    }
+
+    .text-box::after {
+      content: "";
+      display: table;
+      clear: both;
     }
 
     /* Perbaikan khusus untuk gambar topi/sticker agar tidak gepeng */
@@ -361,10 +386,10 @@
           I hope you have a great day today, and the year ahead is full of many blessings. May all your wishes come
           true!
         </p>
+        <p class="fake-btn" id="fakeBtn">
+          Send your wishes ✨
+        </p>
       </div>
-      <p class="fake-btn" id="fakeBtn">
-        Send your wishes ✨
-      </p>
     </div>
 
     <div class="five">

@@ -468,9 +468,12 @@ button[type="submit"]:hover {
     width: 90%;
   }
 
-  .text-box .fake-btn {
-    bottom: -50px;
-    right: 5px;
+  .text-box .fake-btn,
+  .fake-btn {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 10px;
   }
 
   .idea-5 span {
