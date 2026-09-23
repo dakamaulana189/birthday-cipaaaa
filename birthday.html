@@ -13,7 +13,7 @@
   <!-- Style CSS -->
   <link rel="stylesheet" href="./styles/style.css">
 
-  <!-- CSS PERBAIKAN: TEKS PUTIH & AMANKAN UKURAN GAMBAR/HAT -->
+  <!-- CSS PERBAIKAN -->
   <style>
     body,
     .container,
@@ -143,14 +143,10 @@
     .hat {
       position: absolute !important;
       width: 110px !important;
-      /* Atur ukuran kecilnya di sini (bisa diubah misal 100px - 150px) */
       height: auto !important;
       top: -110px !important;
-      /* Atur jarak naik-turunya (angka minus makin besar, posisinya makin ke atas) */
       left: 50% !important;
-      /* Geser ke tengah secara horizontal */
       transform: translateX(-50%) !important;
-      /* Biar pas di tengah-tengah */
       object-fit: contain !important;
       pointer-events: none !important;
       z-index: 10;
@@ -177,7 +173,6 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
     }
 
-    /* Penataan teks ucapan agar rapi dan tidak berantakan */
     .wish {
       margin-top: 20px !important;
       text-align: center !important;
@@ -222,7 +217,6 @@
       cursor: pointer !important;
       color: #70b0ff !important;
       font-weight: 600 !important;
-      display: inline-block !important;
       text-shadow: 0 0 10px rgba(0, 0, 0, 1) !important;
       transition: all 0.3s ease !important;
     }
@@ -247,8 +241,8 @@
     }
 
     /* =========================================
-       Shooting Stars Background Animation
-       ========================================= */
+        Shooting Stars Background Animation
+        ========================================= */
     :root {
       --star-tail-length: 6em;
       --star-tail-height: 2px;
@@ -281,7 +275,6 @@
 
     .star {
       --fall-delay: 0s;
-
       position: absolute;
       top: var(--top-offset);
       left: var(--left-offset);
@@ -535,7 +528,5 @@
 
 <!-- Heart Animation -->
 <script type="application/javascript" src="./scripts/heart_bg.js"></script>
-
-
 
 </html>
