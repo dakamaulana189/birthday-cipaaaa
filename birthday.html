@@ -219,10 +219,14 @@
     }
 
     #replay {
-      cursor: pointer;
+      cursor: pointer !important;
       color: #70b0ff !important;
-      font-weight: 600;
-      display: inline-block;
+      font-weight: 600 !important;
+      display: inline-block !important;
+      opacity: 1 !important;
+      /* Memastikan teks tidak transparan */
+      visibility: visible !important;
+      /* Memastikan teks terlihat */
       text-shadow: 0 0 10px rgba(0, 0, 0, 1) !important;
       transition: all 0.3s ease !important;
     }
@@ -231,9 +235,7 @@
     #replay:hover {
       transform: scale(1.03) !important;
       color: #ff6b81 !important;
-      /* Warna berubah jadi agak pink/merah muda saat di-hover */
       text-shadow: 0 0 15px rgba(255, 107, 129, 0.8) !important;
-      /* Efek glow */
     }
 
     /* Kembalikan SweetAlert (Popup) agar teksnya hitam & terbaca */
