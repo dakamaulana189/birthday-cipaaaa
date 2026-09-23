@@ -222,7 +222,18 @@
       cursor: pointer;
       color: #70b0ff !important;
       font-weight: 600;
+      display: inline-block;
       text-shadow: 0 0 10px rgba(0, 0, 0, 1) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    /* Efek pas kursor diarahkan ke teksnya */
+    #replay:hover {
+      transform: scale(1.03) !important;
+      color: #ff6b81 !important;
+      /* Warna berubah jadi agak pink/merah muda saat di-hover */
+      text-shadow: 0 0 15px rgba(255, 107, 129, 0.8) !important;
+      /* Efek glow */
     }
 
     /* Kembalikan SweetAlert (Popup) agar teksnya hitam & terbaca */
@@ -509,7 +520,7 @@
     </div>
 
     <div class="nine">
-      <p>Bilang ke aku kamu suka apa nggak, okeyyy??</p>
+      <p>Bilang ke aku, kamu suka apa nggak, okeyyy??</p>
       <p id="replay">
         Or you can just click here if you want to see it again!!
       </p>
